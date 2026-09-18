@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Merchtech unboxing animation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Space Grotesk','Helvetica Neue',Arial,sans-serif;background:#F4F1EA}
+.scene{animation:scene 6s linear infinite}
+.mark{animation:drop 6s cubic-bezier(.2,.9,.3,1) infinite}
+.body{animation:squash 6s ease-out infinite}
+.shadow{animation:shadow 6s ease-out infinite}
+.lid{animation:lid 6s cubic-bezier(.3,1.5,.4,1) infinite}
+.spark{animation:spark 6s ease-out infinite}
+.spark:nth-child(2){animation-name:spark2}
+.spark:nth-child(3){animation-name:spark3}
+.spark:nth-child(4){animation-name:spark4}
+.l{animation-duration:6s;animation-timing-function:cubic-bezier(.2,.9,.3,1);animation-iteration-count:infinite}
+.l:nth-child(1){animation-name:l1}.l:nth-child(2){animation-name:l2}.l:nth-child(3){animation-name:l3}
+.l:nth-child(4){animation-name:l4}.l:nth-child(5){animation-name:l5}.l:nth-child(6){animation-name:l6}
+.l:nth-child(7){animation-name:l7}.l:nth-child(8){animation-name:l8}.l:nth-child(9){animation-name:l9}
+.tag{animation:tag 6s linear infinite}
+@keyframes scene{0%,90%{opacity:1}97%,100%{opacity:0}}
+@keyframes drop{0%{transform:translateY(-160px);opacity:0}11%{transform:translateY(0);opacity:1}100%{transform:translateY(0);opacity:1}}
+@keyframes squash{0%,11%{transform:scale(1,1)}13%{transform:scale(1.07,.9)}17%,100%{transform:scale(1,1)}}
+@keyframes shadow{0%{transform:scale(.4);opacity:0}11%{transform:scale(1.08);opacity:1}17%,100%{transform:scale(1);opacity:1}}
+@keyframes lid{0%,11%{transform:translateY(0) rotate(0deg)}13%{transform:translateY(-10px) rotate(0deg)}17%,24%{transform:translateY(0) rotate(0deg)}36%,100%{transform:translateY(-26px) rotate(-14deg)}}
+@keyframes spark{0%,28%{transform:scale(0);opacity:0}36%{transform:scale(1) translate(0,0);opacity:1}52%,100%{transform:scale(.4) translate(10px,-26px);opacity:0}}
+@keyframes spark2{0%,30%{transform:scale(0);opacity:0}38%{transform:scale(1) translate(0,0);opacity:1}54%,100%{transform:scale(.4) translate(18px,-14px);opacity:0}}
+@keyframes spark3{0%,29%{transform:scale(0);opacity:0}37%{transform:scale(1) translate(0,0);opacity:1}53%,100%{transform:scale(.4) translate(-8px,-30px);opacity:0}}
+@keyframes spark4{0%,31%{transform:scale(0);opacity:0}39%{transform:scale(1) translate(0,0);opacity:1}55%,100%{transform:scale(.4) translate(22px,-24px);opacity:0}}
+@keyframes l1{0%,40%{opacity:0;transform:translateY(48px)}45%,100%{opacity:1;transform:translateY(0)}}
+@keyframes l2{0%,41.6%{opacity:0;transform:translateY(48px)}46.6%,100%{opacity:1;transform:translateY(0)}}
+@keyframes l3{0%,43.2%{opacity:0;transform:translateY(48px)}48.2%,100%{opacity:1;transform:translateY(0)}}
+@keyframes l4{0%,44.8%{opacity:0;transform:translateY(48px)}49.8%,100%{opacity:1;transform:translateY(0)}}
+@keyframes l5{0%,46.4%{opacity:0;transform:translateY(48px)}51.4%,100%{opacity:1;transform:translateY(0)}}
+@keyframes l6{0%,48%{opacity:0;transform:translateY(48px)}53%,100%{opacity:1;transform:translateY(0)}}
+@keyframes l7{0%,49.6%{opacity:0;transform:translateY(48px)}54.6%,100%{opacity:1;transform:translateY(0)}}
+@keyframes l8{0%,51.2%{opacity:0;transform:translateY(48px)}56.2%,100%{opacity:1;transform:translateY(0)}}
+@keyframes l9{0%,52.8%{opacity:0;transform:translateY(48px)}57.8%,100%{opacity:1;transform:translateY(0)}}
+@keyframes tag{0%,58%{width:0;animation-timing-function:steps(34,end)}72%,100%{width:430px}}
+</style>
+</helmet>
+<div style="width: 880px; height: 560px; box-sizing: border-box; background: #F4F1EA; color: #17181C; position: relative; overflow: hidden;">
+<div class="scene" style="position: absolute; left: 110px; top: 170px; width: 660px; height: 220px;">
+<div class="mark" style="position: absolute; left: 0px; top: 0px; width: 200px; height: 200px;">
+<div class="shadow" style="position: absolute; left: 30px; top: 184px; width: 140px; height: 14px; border-radius: 50%; background: rgba(23, 24, 28, 0.14);"></div>
+<div class="body" style="position: absolute; left: 32px; top: 92px; width: 136px; height: 84px; border-radius: 12px; background: {{accent}}; transform-origin: 50% 100%; overflow: hidden;">
+<div style="position: absolute; left: 56px; top: 0px; width: 24px; height: 84px; background: #F4F1EA;"></div>
+</div>
+<div class="lid" style="position: absolute; left: 20px; top: 64px; width: 160px; height: 32px; transform-origin: 0% 100%;">
+<div style="position: absolute; left: 0px; top: 0px; width: 160px; height: 32px; border-radius: 10px; background: {{accent}}; overflow: hidden;">
+<div style="position: absolute; left: 68px; top: 0px; width: 24px; height: 32px; background: #F4F1EA;"></div>
+</div>
+<svg viewBox="0 0 44 26" width="88" height="52" aria-hidden="true" style="position: absolute; left: 36px; top: -50px; overflow: visible;">
+<path d="M22 25 C8 4 0 14 22 25 C36 4 44 14 22 25 Z" fill="none" stroke="#17181C" stroke-width="4.5" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div style="position: absolute; left: 0px; top: 0px; width: 200px; height: 200px;">
+<div class="spark" style="position: absolute; left: 150px; top: 56px; width: 10px; height: 10px; border-radius: 50%; background: #17181C;"></div>
+<div class="spark" style="position: absolute; left: 176px; top: 78px; width: 7px; height: 7px; border-radius: 50%; background: {{accent}};"></div>
+<div class="spark" style="position: absolute; left: 128px; top: 40px; width: 6px; height: 6px; border-radius: 50%; background: {{accent}};"></div>
+<div class="spark" style="position: absolute; left: 186px; top: 50px; width: 8px; height: 8px; border-radius: 50%; background: #17181C;"></div>
+</div>
+</div>
+<div style="position: absolute; left: 232px; top: 50px; display: flex; font-size: 100px; font-weight: 700; line-height: 1; letter-spacing: -0.04em;">
+<span class="l" style="color: #17181C;">m</span><span class="l" style="color: #17181C;">e</span><span class="l" style="color: #17181C;">r</span><span class="l" style="color: #17181C;">c</span><span class="l" style="color: #17181C;">h</span><span class="l" style="color: {{accent}};">t</span><span class="l" style="color: {{accent}};">e</span><span class="l" style="color: {{accent}};">c</span><span class="l" style="color: {{accent}};">h</span>
+</div>
+<div class="tag" style="position: absolute; left: 240px; top: 166px; height: 24px; overflow: hidden; white-space: nowrap; font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: 16px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5B5E66;">software for promo merch companies</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#D97B2B","options":["#D97B2B","#2E4BFF","#1E9E6A","#C8311C"]},"$preview":{"width":880,"height":560}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#D97B2B' };
+}
+}
+</script>
+</body>
+</html>

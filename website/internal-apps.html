@@ -5,15 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Internal apps for promo distributors | Merchtech</title>
 <meta name="description" content="Order tracking boards, artwork intake portals, vendor and SKU masters, and quoting tools for promotional products companies.">
+<link rel="icon" href="assets/mark-on-dark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
   <nav class="container">
-    <a class="brand" href="index.html">merch<span>tech</span></a>
-    <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">menu</button>
+    <a class="brand" href="index.html"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="16" y="46" width="68" height="42" rx="6" fill="#D97B2B"/><rect x="44" y="46" width="12" height="42" fill="#F4F1EA"/><g class="lid" transform="rotate(-12 10 48)"><rect x="10" y="32" width="80" height="16" rx="5" fill="#D97B2B"/><rect x="44" y="32" width="12" height="16" fill="#F4F1EA"/><path d="M50 31 C36 12 28 22 50 31 C64 12 72 22 50 31 Z" fill="none" stroke="#F4F1EA" stroke-width="5" stroke-linejoin="round"/></g></svg><b>merch<span>tech</span></b></a>
+    <button class="menu-btn" aria-label="Menu">menu</button>
     <div class="links">
       <a href="index.html">Home</a>
       <a href="internal-apps.html" aria-current="page">Internal Apps</a>
@@ -28,43 +29,46 @@
 </header>
 <main>
 
-<section>
-  <div class="container">
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="container" style="display:block">
     <span class="label">Internal apps</span>
-    <h1>Replace the spreadsheet everyone edits at once.</h1>
-    <p class="lead">One process, one app. Built on Google Apps Script and Sheets when your team is on Google Workspace, or Node and PostgreSQL when roles, permissions and record counts demand it.</p>
+    <h1><span class="hero-word">Replace the spreadsheet everyone edits at once.</span></h1>
+    <p class="lead reveal d2">One process, one app. Built on Google Apps Script and Sheets when your team is on Google Workspace, or Node and PostgreSQL when roles, permissions and record counts demand it.</p>
   </div>
 </section>
 
 <section class="alt">
   <div class="container">
-    <span class="label">Four apps we build most</span>
-    <div class="grid two">
-      <div class="card"><h3>Order tracking and production board</h3><p>Every order line with its status: art approved, in production, shipped. Filters by client, vendor and due date. Role-gated status changes. Email to sales when an order ships.</p></div>
-      <div class="card"><h3>Client intake portal</h3><p>A no-login link per client to collect logos, vector artwork, PMS colours, shipping addresses and sign-off. Your team reviews, approves or requests changes. No more chasing by email.</p></div>
-      <div class="card"><h3>Vendor, SKU and product master</h3><p>One place for supplier, sourcing cost, MOQ, decoration options and images. Feeds your quotes and your store so the same product is not described five different ways.</p></div>
-      <div class="card"><h3>Quoting and proposal tools</h3><p>Price calculators with quantity breaks and decoration charges. Quote documents generated from the product master. Mockup request tracking.</p></div>
-    </div>
+    
+<div class="feature">
+  <div class="feature-text reveal"><span class="label">Order tracking</span><h2>Production board with role-gated status moves.</h2><p>Filters by client, vendor and due date. Late orders surface on their own. Try it: filter for Baylor, then click an order to move it along.</p></div>
+  <div><div class="device reveal" data-demo="board"><div class="device-bar"><i></i><i></i><i></i><span>orders.yourcompany.com</span></div><div class="device-body"></div></div></div>
+</div>
+    
+<div class="feature flip">
+  <div class="feature-text reveal"><span class="label">Quoting tool</span><h2>Quantity breaks, decoration and margin in one place.</h2><p>Reads your product master and vendor cost sheets. Produces the sell price and the quote document. Drag the quantity across a tier break and watch the unit price drop.</p></div>
+  <div><div class="device reveal" data-demo="quote"><div class="device-bar"><i></i><i></i><i></i><span>quote.yourcompany.com</span></div><div class="device-body"></div></div></div>
+</div>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <span class="label">How a build runs</span>
-    <div class="steps">
-      <div class="step"><div><h3>Spec from your spreadsheet</h3><p>Your current sheet is the specification. Every column is kept or explicitly dropped. Status flow and who can change what are written down and approved before code.</p></div></div>
-      <div class="step"><div><h3>Data and backend</h3><p>One tab or table per entity, generated ids, timestamps. Writes go through one path so two people cannot overwrite each other.</p></div></div>
-      <div class="step"><div><h3>Screens</h3><p>A filtered table, a detail view with status actions, a creation form. Plain HTML and JavaScript, no framework to maintain.</p></div></div>
-      <div class="step"><div><h3>Notifications and access</h3><p>Email on the events you name. Access restricted to your domain, or tokenised links for clients and vendors.</p></div></div>
-      <div class="step"><div><h3>Deploy and handover</h3><p>Deployed under your Google account or your server. Handover document covers adding users, adding fields, and backups.</p></div></div>
+    <span class="label reveal">Four apps we build most</span>
+    <div class="grid two">
+      <div class="card reveal"><h3>Order tracking and production board</h3><p>Every order line with its status: art approved, in production, shipped. Filters by client, vendor and due date. Role-gated status changes. Email to sales when an order ships.</p></div>
+      <div class="card reveal d1"><h3>Client intake portal</h3><p>A no-login link per client to collect logos, vector artwork, PMS colours, shipping addresses and sign-off. Your team reviews, approves or requests changes. No more chasing by email.</p></div>
+      <div class="card reveal d2"><h3>Vendor, SKU and product master</h3><p>One place for supplier, sourcing cost, MOQ, decoration options and images. Feeds your quotes and your store so the same product is not described five different ways.</p></div>
+      <div class="card reveal d3"><h3>Quoting and proposal tools</h3><p>Price calculators with quantity breaks and decoration charges. Quote documents generated from the product master. Mockup request tracking.</p></div>
     </div>
   </div>
 </section>
 
 <section class="alt">
   <div class="container">
-    <span class="label">Stack rules</span>
-    <table>
+    <span class="label reveal">Stack rules</span>
+    <table class="reveal">
       <tr><th>Your situation</th><th>What we build on</th></tr>
       <tr><td>Under about 10 internal users, Google Workspace, data fits in sheets</td><td>Google Apps Script web app + Google Sheets</td></tr>
       <tr><td>Clients or vendors need a no-login link</td><td>Apps Script web app with tokenised links per record</td></tr>
@@ -75,7 +79,7 @@
 </section>
 
 <section class="cta">
-  <div class="container">
+  <div class="container reveal">
     <h2>Send us the spreadsheet.</h2>
     <p class="lead">Describe who edits it and where it breaks. We reply with a scope.</p>
     <a class="btn" href="mailto:hello@merchtech.in">Email hello@merchtech.in</a>
@@ -85,9 +89,10 @@
 </main>
 <footer>
   <div class="container">
-    <div>Merchtech. Software for promotional gifting companies.</div>
+    <div><img src="assets/mark-on-dark.svg" alt="">Merchtech. Software for promo merch companies.</div>
     <div><a href="mailto:hello@merchtech.in">hello@merchtech.in</a></div>
   </div>
 </footer>
+<script src="site.js"></script>
 </body>
 </html>

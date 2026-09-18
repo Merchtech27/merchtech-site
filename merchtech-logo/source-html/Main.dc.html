@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Merchtech lockup, light</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Space Grotesk','Helvetica Neue',Arial,sans-serif;background:#F4F1EA}
+</style>
+</helmet>
+<div style="width: 880px; height: 360px; box-sizing: border-box; background: #F4F1EA; color: #17181C; display: flex; align-items: center; justify-content: center; gap: 36px; padding: 40px;">
+<svg viewBox="0 0 100 100" width="180" height="180" aria-label="Merchtech mark" role="img" style="flex-shrink: 0; overflow: visible;">
+<rect x="16" y="46" width="68" height="42" rx="6" fill="{{accent}}"></rect>
+<rect x="44" y="46" width="12" height="42" fill="#F4F1EA"></rect>
+<g transform="rotate(-12 10 48)">
+<rect x="10" y="32" width="80" height="16" rx="5" fill="{{accent}}"></rect>
+<rect x="44" y="32" width="12" height="16" fill="#F4F1EA"></rect>
+<path d="M50 31 C36 12 28 22 50 31 C64 12 72 22 50 31 Z" fill="none" stroke="#17181C" stroke-width="5" stroke-linejoin="round"></path>
+</g>
+</svg>
+<div style="display: flex; flex-direction: column; gap: 10px;">
+<div style="display: flex; font-size: 104px; font-weight: 700; line-height: 1; letter-spacing: -0.04em;">
+<span style="color: #17181C;">merch</span><span style="color: {{accent}};">tech</span>
+</div>
+<div style="font-family: 'IBM Plex Mono', 'Courier New', monospace; font-size: 16px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #5B5E66; padding-left: 8px;">software for promo merch companies</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#D97B2B","options":["#D97B2B","#2E4BFF","#1E9E6A","#C8311C"]},"$preview":{"width":880,"height":360}}'>
+class Component extends DCLogic {
+renderVals() {
+return { accent: this.props.accent ?? '#D97B2B' };
+}
+}
+</script>
+</body>
+</html>

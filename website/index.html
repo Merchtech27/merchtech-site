@@ -4,16 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Software for promotional gifting companies | Merchtech</title>
-<meta name="description" content="Merchtech builds internal apps, redemption websites and custom software for promotional products distributors and corporate gifting companies under $5M revenue.">
+<meta name="description" content="Merchtech builds internal apps, redemption websites, kit builders, designer tools and custom software for promotional products distributors and corporate gifting companies under $5M revenue.">
+<link rel="icon" href="assets/mark-on-dark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
   <nav class="container">
-    <a class="brand" href="index.html">merch<span>tech</span></a>
-    <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">menu</button>
+    <a class="brand" href="index.html"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="16" y="46" width="68" height="42" rx="6" fill="#D97B2B"/><rect x="44" y="46" width="12" height="42" fill="#F4F1EA"/><g class="lid" transform="rotate(-12 10 48)"><rect x="10" y="32" width="80" height="16" rx="5" fill="#D97B2B"/><rect x="44" y="32" width="12" height="16" fill="#F4F1EA"/><path d="M50 31 C36 12 28 22 50 31 C64 12 72 22 50 31 Z" fill="none" stroke="#F4F1EA" stroke-width="5" stroke-linejoin="round"/></g></svg><b>merch<span>tech</span></b></a>
+    <button class="menu-btn" aria-label="Menu">menu</button>
     <div class="links">
       <a href="index.html" aria-current="page">Home</a>
       <a href="internal-apps.html">Internal Apps</a>
@@ -28,68 +29,95 @@
 </header>
 <main>
 
-<section>
+<section class="hero">
+  <div class="hero-glow"></div>
   <div class="container">
-    <span class="label">Merchtech</span>
-    <h1>Software for promotional gifting companies that still run on spreadsheets.</h1>
-    <p class="lead">Internal apps, gift redemption websites and custom development for distributors, decorators and corporate gifting firms under $5M revenue. Built by one engineer, scoped to one problem at a time.</p>
-    <p><a class="btn" href="mailto:hello@merchtech.in">Email us</a> &nbsp; <a class="btn ghost" href="pricing.html">How engagements work</a></p>
+    <div>
+      <span class="label">Merchtech</span>
+      <h1><span class="hero-word">Software for promo merch companies that still run on spreadsheets.</span></h1>
+      <p class="lead reveal d2">Internal apps, gift redemption sites, kit builders, designer tools and custom development for distributors, decorators and corporate gifting firms under $5M revenue.</p>
+      <p class="reveal d3"><a class="btn" href="#demos">Try the demos</a> &nbsp; <a class="btn ghost" href="mailto:hello@merchtech.in">Email us</a></p>
+    </div>
+    <div class="unbox" aria-hidden="true">
+  <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div>
+  <div class="mark">
+    <div class="shadow"></div>
+    <div class="body"><i></i></div>
+    <div class="lid"><b><i></i></b><svg viewBox="0 0 44 26"><path d="M22 25 C8 4 0 14 22 25 C36 4 44 14 22 25 Z" fill="none" stroke="#F4F1EA" stroke-width="4.5" stroke-linejoin="round"/></svg></div>
+    <div><div class="spark" style="left:150px;top:56px;width:10px;height:10px;background:#F4F1EA"></div><div class="spark" style="left:176px;top:78px;width:7px;height:7px;background:#D97B2B"></div><div class="spark" style="left:128px;top:40px;width:6px;height:6px;background:#D97B2B"></div><div class="spark" style="left:186px;top:50px;width:8px;height:8px;background:#F4F1EA"></div></div>
+  </div>
+</div>
+  </div>
+</section>
+
+<section class="alt tight">
+  <div class="container band reveal">
+    <div><b>5</b><span>working demos below</span></div>
+    <div><b>1</b><span>engineer, no handoffs</span></div>
+    <div><b>0</b><span>servers unless the brief needs one</span></div>
+    <div><b>&lt;$5M</b><span>the companies we build for</span></div>
+  </div>
+</section>
+
+<section id="demos">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:56px"><span class="label">Try it</span><h2>Five things we build. All five work right here.</h2><p class="lead" style="margin:0 auto">Click, drag, type. Nothing is saved and nothing is sent. These are the shapes of the tools; yours get your products, your prices and your branding.</p></div>
+
+    
+<div class="feature">
+  <div class="feature-text reveal"><span class="label">Redemption sites</span><h2>Recipient enters a code, picks a gift, gives an address.</h2><p>Holiday programmes, onboarding kits, client appreciation. Codes lock after one use. Every redemption lands as one row in a sheet your fulfilment team already understands.</p><a href="redemption-sites.html">Redemption sites →</a></div>
+  <div><div class="device reveal" data-demo="redemption"><div class="device-bar"><i></i><i></i><i></i><span>redeem.client.com</span></div><div class="device-body"></div></div></div>
+</div>
+
+    
+<div class="feature flip">
+  <div class="feature-text reveal"><span class="label">Internal apps</span><h2>The production board your team fights over, as an app.</h2><p>Every order line with a status, a vendor and a due date. Filters for what is late. Role-gated moves between stages. An email to sales when something ships.</p><a href="internal-apps.html">Internal apps →</a></div>
+  <div><div class="device reveal" data-demo="board"><div class="device-bar"><i></i><i></i><i></i><span>orders.yourcompany.com</span></div><div class="device-body"></div></div></div>
+</div>
+
+    
+<div class="feature">
+  <div class="feature-text reveal"><span class="label">Quoting tools</span><h2>Quantity breaks, decoration charges and margin, in one screen.</h2><p>Sales stops copying vendor price lists into a calculator. The quote tool reads your product master and produces the sell price and the document.</p><a href="internal-apps.html">Internal apps →</a></div>
+  <div><div class="device reveal" data-demo="quote"><div class="device-bar"><i></i><i></i><i></i><span>quote.yourcompany.com</span></div><div class="device-body"></div></div></div>
+</div>
+
+    
+<div class="feature flip">
+  <div class="feature-text reveal"><span class="label">Kit builders</span><h2>Let the client assemble the kit within a budget.</h2><p>Welcome kits, event boxes, executive gifts. The client picks items, sees the running total, and cannot approve over budget. The approved kit feeds the redemption site.</p><a href="redemption-sites.html">Redemption sites →</a></div>
+  <div><div class="device reveal" data-demo="kit"><div class="device-bar"><i></i><i></i><i></i><span>kits.client.com</span></div><div class="device-body"></div></div></div>
+</div>
+
+    
+<div class="feature">
+  <div class="feature-text reveal"><span class="label">Designer tools</span><h2>Logo on product, colour, placement, size. Written to the order.</h2><p>Clients stop emailing screenshots with arrows. They drag their artwork onto the product, pick the colour, and the placement spec goes to production with the order.</p><a href="custom-development.html">Custom development →</a></div>
+  <div><div class="device reveal" data-demo="designer"><div class="device-bar"><i></i><i></i><i></i><span>design.yourcompany.com</span></div><div class="device-body"></div></div></div>
+</div>
   </div>
 </section>
 
 <section class="alt">
   <div class="container">
-    <span class="label">What we build</span>
-    <div class="grid three">
-      <a class="card" href="internal-apps.html">
-        <span class="num">01</span>
-        <h3>Internal apps</h3>
-        <p>Order tracking boards, artwork intake portals, vendor and SKU masters, quoting tools. The spreadsheet your team fights with, turned into an app that enforces the process.</p>
-      </a>
-      <a class="card" href="redemption-sites.html">
-        <span class="num">02</span>
-        <h3>Redemption websites</h3>
-        <p>Recipients enter a code, pick a gift, give an address. You get a clean export for fulfilment. Company stores and points portals when the programme is ongoing.</p>
-      </a>
-      <a class="card" href="custom-development.html">
-        <span class="num">03</span>
-        <h3>Custom development</h3>
-        <p>Websites, integrations and tools that do not fit a template. Scoped in writing, built in the lightest stack that works, handed over with documentation.</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <span class="label">How it works</span>
+    <span class="label reveal">How it works</span>
     <div class="steps">
-      <div class="step"><div><h3>Discovery by email or call</h3><p>You describe the process. We ask about users, data, deadlines and the systems you already pay for.</p></div></div>
-      <div class="step"><div><h3>Written proposal</h3><p>Scope, stack, timeline, price and what is excluded. Under 1,500 words. You sign off before any code is written.</p></div></div>
-      <div class="step"><div><h3>Build with verification at each stage</h3><p>Spec, data, backend, screens, deploy. Each step is checked before the next. You see working software early, not at the end.</p></div></div>
-      <div class="step"><div><h3>Handover you own</h3><p>Accounts in your name, a handover document, and instructions for the changes you will need to make yourself.</p></div></div>
+      <div class="step reveal"><div><h3>Discovery by email or call</h3><p>You describe the process. We ask about users, data, deadlines and the systems you already pay for.</p></div></div>
+      <div class="step reveal d1"><div><h3>Written proposal</h3><p>Scope, stack, timeline, price and what is excluded. Under 1,500 words. You sign off before any code is written.</p></div></div>
+      <div class="step reveal d2"><div><h3>Build with verification at each stage</h3><p>Spec, data, backend, screens, deploy. Each step is checked before the next. You see working software early, not at the end.</p></div></div>
+      <div class="step reveal d3"><div><h3>Handover you own</h3><p>Accounts in your name, a handover document, and instructions for the changes you will need to make yourself.</p></div></div>
     </div>
   </div>
 </section>
 
-<section class="alt">
+<section>
   <div class="container">
-    <span class="label">Why a specialist</span>
     <div class="grid two">
-      <div>
-        <h2>We know the workflow before the first call.</h2>
-        <p>Art approval, decoration methods, vendor MOQs, kitting, drop-ship to recipients, seasonal redemption spikes. Merchtech comes out of a promotional merchandise company that built its own internal tooling first. You will not spend the discovery call explaining what a PO from a supplier looks like.</p>
-      </div>
-      <div>
-        <h2>Built for companies your size.</h2>
-        <p>Under $5M revenue means a team of 3 to 30, no IT department, and software budgets that must pay back within a season. We default to tools you already have, like Google Workspace and Shopify, and only add servers when the brief requires them.</p>
-      </div>
+      <div class="reveal"><span class="label">Why a specialist</span><h2>We know the workflow before the first call.</h2><p class="lead">Art approval, decoration methods, vendor MOQs, kitting, drop-ship to recipients, seasonal redemption spikes. Merchtech comes out of a promotional merchandise company that built its own internal tooling first.</p></div>
+      <div class="reveal d1"><span class="label">Built for your size</span><h2>Under $5M revenue means no IT department.</h2><p class="lead">A team of 3 to 30 and software that must pay back within a season. We default to tools you already have, like Google Workspace and Shopify, and only add servers when the brief requires them.</p></div>
     </div>
   </div>
 </section>
 
 <section class="cta">
-  <div class="container">
+  <div class="container reveal">
     <h2>Tell us what you run on spreadsheets today.</h2>
     <p class="lead">One email. We reply with questions, not a pitch.</p>
     <a class="btn" href="mailto:hello@merchtech.in">Email hello@merchtech.in</a>
@@ -99,9 +127,10 @@
 </main>
 <footer>
   <div class="container">
-    <div>Merchtech. Software for promotional gifting companies.</div>
+    <div><img src="assets/mark-on-dark.svg" alt="">Merchtech. Software for promo merch companies.</div>
     <div><a href="mailto:hello@merchtech.in">hello@merchtech.in</a></div>
   </div>
 </footer>
+<script src="site.js"></script>
 </body>
 </html>
