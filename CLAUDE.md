@@ -19,7 +19,7 @@ Merchtech/
   skills/              one folder per skill, each with SKILL.md
   templates/           reusable code and document scaffolds
   clients/<slug>/      one folder per client: brief, proposal, code, notes
-  website/             Merchtech marketing site
+  docs/                Merchtech marketing site (GitHub Pages serves this folder)
   docs/                decisions, pricing, positioning
 ```
 
@@ -49,7 +49,7 @@ Each skill lives in `skills/<name>/SKILL.md`. Write skills with the skill-creato
 ## Relationship to CompanyStore.IO assets
 
 Merchtech is independent. Existing CompanyStore tools (OTS, CS Intake, SKU portal, RSM store, Core-5 brand) are not to be copied into client deliverables.
-Exception: the Merchtech website may borrow structure and patterns from CompanyStore assets but must use its own design language, colour system and typography. Define these in `website/design.md` before building the site.
+Exception: the Merchtech website may borrow structure and patterns from CompanyStore assets but must use its own design language, colour system and typography. Define these in `docs/design.md` before building the site.
 
 ## Working rules
 
