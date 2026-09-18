@@ -8,17 +8,21 @@
   const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
   const money = n => '$' + n.toFixed(2);
 
-  /* product illustrations, drawn inline so nothing external loads */
-  const ART = {
-    tumbler: c => `<svg viewBox="0 0 100 100"><path d="M30 12h40l-4 76a6 6 0 0 1-6 6H40a6 6 0 0 1-6-6z" fill="${c}"/><rect x="28" y="8" width="44" height="10" rx="3" fill="#E6E8EB"/><rect x="36" y="40" width="28" height="18" rx="2" fill="rgba(0,0,0,.25)"/></svg>`,
-    blanket: c => `<svg viewBox="0 0 100 100"><rect x="14" y="30" width="72" height="50" rx="6" fill="${c}"/><path d="M14 44h72M14 58h72M14 72h72" stroke="rgba(0,0,0,.2)" stroke-width="3"/><rect x="20" y="22" width="60" height="14" rx="5" fill="#E6E8EB"/></svg>`,
-    backpack: c => `<svg viewBox="0 0 100 100"><rect x="24" y="24" width="52" height="66" rx="14" fill="${c}"/><rect x="34" y="12" width="32" height="16" rx="8" fill="#8B929C"/><rect x="30" y="56" width="40" height="24" rx="6" fill="rgba(0,0,0,.25)"/><rect x="42" y="36" width="16" height="6" rx="3" fill="#E6E8EB"/></svg>`,
-    notebook: c => `<svg viewBox="0 0 100 100"><rect x="24" y="14" width="56" height="72" rx="5" fill="${c}"/><rect x="20" y="20" width="8" height="60" rx="3" fill="#8B929C"/><path d="M40 34h28M40 46h28M40 58h20" stroke="rgba(0,0,0,.3)" stroke-width="3"/></svg>`,
-    tee: c => `<svg viewBox="0 0 100 100"><path d="M34 16l16 6 16-6 18 12-8 14-8-4v48H32V38l-8 4-8-14z" fill="${c}"/></svg>`,
-    cap: c => `<svg viewBox="0 0 100 100"><path d="M22 58a28 28 0 0 1 56 0z" fill="${c}"/><path d="M14 58h76a4 4 0 0 1 0 8H40q-20 0-26-8z" fill="rgba(0,0,0,.35)"/></svg>`,
-    mug: c => `<svg viewBox="0 0 100 100"><rect x="22" y="28" width="46" height="52" rx="6" fill="${c}"/><path d="M68 40h8a10 10 0 0 1 0 22h-8" fill="none" stroke="${c}" stroke-width="8"/><rect x="30" y="44" width="30" height="16" rx="2" fill="rgba(0,0,0,.25)"/></svg>`,
-    card: c => `<svg viewBox="0 0 100 100"><rect x="14" y="30" width="72" height="44" rx="6" fill="${c}"/><rect x="14" y="42" width="72" height="8" fill="rgba(0,0,0,.35)"/><rect x="22" y="58" width="30" height="6" rx="2" fill="#E6E8EB"/></svg>`
+  /* product illustrations, drawn inline with shading so nothing external loads */
+  let gid = 0;
+  const shade = (c, id) => `<defs><linearGradient id="${id}" x1="0" x2="1"><stop offset="0" stop-color="${c}"/><stop offset=".55" stop-color="${c}"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></linearGradient><linearGradient id="${id}h" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".18"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>`;
+  const wrap = (inner, vb) => `<svg viewBox="${vb || '0 0 200 200'}" xmlns="http://www.w3.org/2000/svg">${inner}</svg>`;
+  const SHAPES = {
+    tee: c => { const g = 'g' + (++gid); return wrap(shade(c, g) + `<path d="M62 42 L88 30 Q100 44 112 30 L138 42 L178 62 L164 92 L142 82 L142 182 Q100 190 58 182 L58 82 L36 92 L22 62 Z" fill="url(#${g})"/><path d="M88 30 Q100 44 112 30 Q114 52 100 56 Q86 52 88 30 Z" fill="#000" fill-opacity=".28"/><path d="M62 42 L88 30 Q100 44 112 30 L138 42 L178 62 L164 92 L142 82 L142 182 Q100 190 58 182 L58 82 L36 92 L22 62 Z" fill="url(#${g}h)"/><path d="M142 82 L164 92 M58 82 L36 92" stroke="#000" stroke-opacity=".25" stroke-width="2"/>`); },
+    cap: c => { const g = 'g' + (++gid); return wrap(shade(c, g) + `<path d="M40 124 C40 44 160 44 160 124 Q100 134 40 124 Z" fill="url(#${g})"/><path d="M100 64 C78 74 64 96 62 122 M100 64 C122 74 136 96 138 122 M100 64 V126 M100 64 C90 86 84 104 84 124 M100 64 C110 86 116 104 116 124" stroke="#000" stroke-opacity=".22" stroke-width="2" fill="none"/><circle cx="100" cy="64" r="5" fill="${c}" stroke="#000" stroke-opacity=".35" stroke-width="2"/><path d="M40 124 C40 44 160 44 160 124 Q100 134 40 124 Z" fill="url(#${g}h)"/><path d="M34 122 Q100 110 166 122 Q170 146 100 154 Q30 146 34 122 Z" fill="url(#${g})"/><path d="M34 122 Q100 110 166 122 Q170 146 100 154 Q30 146 34 122 Z" fill="#000" fill-opacity=".22"/><path d="M40 124 Q100 136 160 124" stroke="#000" stroke-opacity=".3" stroke-width="3" fill="none"/>`); },
+    tumbler: c => { const g = 'g' + (++gid); return wrap(shade(c, g) + `<rect x="58" y="22" width="84" height="18" rx="6" fill="#2A2E36"/><rect x="66" y="16" width="68" height="10" rx="4" fill="#3A3F49"/><rect x="92" y="10" width="16" height="8" rx="3" fill="#2A2E36"/><path d="M62 40 H138 L130 178 Q100 190 70 178 Z" fill="url(#${g})"/><path d="M62 40 H138 L130 178 Q100 190 70 178 Z" fill="url(#${g}h)"/><path d="M72 48 L68 170" stroke="#fff" stroke-opacity=".22" stroke-width="5" stroke-linecap="round"/>`); },
+    blanket: c => { const g = 'g' + (++gid); return wrap(shade(c, g) + `<rect x="30" y="66" width="140" height="96" rx="12" fill="url(#${g})"/><path d="M30 92 H170 M30 118 H170 M30 144 H170" stroke="#000" stroke-opacity=".18" stroke-width="6"/><rect x="42" y="52" width="116" height="26" rx="8" fill="#F4F1EA"/><rect x="42" y="52" width="116" height="26" rx="8" fill="#000" fill-opacity=".06"/><path d="M60 65 H140" stroke="${c}" stroke-width="3" stroke-linecap="round"/>`); },
+    backpack: c => { const g = 'g' + (++gid); return wrap(shade(c, g) + `<rect x="64" y="22" width="72" height="30" rx="14" fill="#2A2E36"/><rect x="46" y="44" width="108" height="136" rx="26" fill="url(#${g})"/><rect x="46" y="44" width="108" height="136" rx="26" fill="url(#${g}h)"/><rect x="60" y="110" width="80" height="50" rx="12" fill="#000" fill-opacity=".28"/><path d="M60 122 H140" stroke="#2A2E36" stroke-width="4"/><rect x="86" y="70" width="28" height="9" rx="4" fill="#F4F1EA"/>`); },
+    notebook: c => { const g = 'g' + (++gid); return wrap(shade(c, g) + `<rect x="52" y="28" width="104" height="146" rx="8" fill="url(#${g})"/><rect x="44" y="34" width="16" height="134" rx="5" fill="#2A2E36"/><rect x="52" y="28" width="104" height="146" rx="8" fill="url(#${g}h)"/><rect x="132" y="28" width="12" height="146" fill="#000" fill-opacity=".18"/><path d="M78 70 H126 M78 90 H126 M78 110 H108" stroke="#000" stroke-opacity=".3" stroke-width="4" stroke-linecap="round"/>`); },
+    mug: c => { const g = 'g' + (++gid); return wrap(shade(c, g) + `<path d="M50 56 H140 V156 Q140 174 122 174 H68 Q50 174 50 156 Z" fill="url(#${g})"/><path d="M140 76 H154 Q182 76 182 108 Q182 140 154 140 H140 V126 H152 Q168 126 168 108 Q168 90 152 90 H140 Z" fill="url(#${g})"/><ellipse cx="95" cy="56" rx="45" ry="9" fill="#000" fill-opacity=".35"/><path d="M50 56 H140 V156 Q140 174 122 174 H68 Q50 174 50 156 Z" fill="url(#${g}h)"/>`); },
+    card: c => { const g = 'g' + (++gid); return wrap(shade(c, g) + `<rect x="24" y="56" width="152" height="96" rx="12" fill="url(#${g})"/><rect x="24" y="78" width="152" height="18" fill="#000" fill-opacity=".4"/><rect x="40" y="112" width="64" height="12" rx="4" fill="#F4F1EA"/><rect x="40" y="130" width="40" height="8" rx="3" fill="#F4F1EA" fill-opacity=".6"/><circle cx="150" cy="128" r="12" fill="#F4F1EA" fill-opacity=".9"/>`); }
   };
+  const ART = SHAPES;
   const ACC = '#D97B2B';
 
   /* ---------- scroll reveal ---------- */
@@ -192,39 +196,61 @@
 
   /* ---------- 5. merch designer ---------- */
   function designer(root) {
+    /* print areas are in the 200x200 product viewBox; the canvas scales the product to CW px */
     const PROD = {
-      tee: c => `<svg class="prod" viewBox="0 0 100 120"><path d="M34 16l16 6 16-6 18 12-8 14-8-4v66H32V38l-8 4-8-14z" fill="${c}" stroke="rgba(255,255,255,.08)"/></svg>`,
-      tumbler: c => `<svg class="prod" viewBox="0 0 100 120"><path d="M30 18h40l-4 88a6 6 0 0 1-6 6H40a6 6 0 0 1-6-6z" fill="${c}"/><rect x="28" y="12" width="44" height="12" rx="4" fill="#E6E8EB"/></svg>`,
-      cap: c => `<svg class="prod" viewBox="0 0 100 120"><path d="M20 70a30 30 0 0 1 60 0z" fill="${c}"/><path d="M10 70h80a5 5 0 0 1 0 10H40q-22 0-30-10z" fill="rgba(0,0,0,.35)"/></svg>`
+      tee: { name: 'Tee', area: { x: 74, y: 70, w: 52, h: 60 } },
+      cap: { name: 'Cap', area: { x: 76, y: 76, w: 48, h: 36 } },
+      tumbler: { name: 'Tumbler', area: { x: 76, y: 70, w: 44, h: 72 } },
+      tote: { name: 'Tote', area: { x: 66, y: 84, w: 68, h: 60 } }
     };
-    const COLORS = ['#17181C', '#F4F1EA', '#1F4E79', '#D97B2B', '#4CAF7D', '#7A2E2E'];
-    let prod = 'tee', color = COLORS[2], pos = { x: 0, y: 0 }, size = 60, mark = 'colour';
+    SHAPES.tote = c => { const g = 'g' + (++gid); return wrap(shade(c, g) + `<path d="M70 26 Q100 4 130 26 L124 40 Q100 22 76 40 Z" fill="none" stroke="#2A2E36" stroke-width="7"/><path d="M40 60 H160 L150 178 Q100 186 50 178 Z" fill="url(#${g})"/><path d="M40 60 H160 L150 178 Q100 186 50 178 Z" fill="url(#${g}h)"/><path d="M40 60 H160" stroke="#000" stroke-opacity=".25" stroke-width="4"/>`); };
+    const COLORS = [['#1C1D22', 'Black'], ['#F4F1EA', 'Natural'], ['#1F4E79', 'Navy'], ['#D97B2B', 'Orange'], ['#3E7C59', 'Forest'], ['#7A2E2E', 'Maroon'], ['#8B929C', 'Heather']];
+    let CW = 320; /* product render size in px, set from the canvas width */
+    let prod = 'tee', color = COLORS[2][0], mark = 'colour', size = 44, pos = null, method = 'Screen print';
     const body = $('.device-body', root);
     body.innerHTML = `<div class="designer"><div class="canvas" id="dc"></div><div class="dz-panel">
-      <label>Product</label><div class="seg" id="dp">${Object.keys(PROD).map(k => `<button data-k="${k}" class="${k === prod ? 'on' : ''}">${k}</button>`).join('')}</div>
-      <label>Colour</label><div class="swatches" id="ds">${COLORS.map(c => `<button data-c="${c}" style="background:${c}" class="${c === color ? 'on' : ''}"></button>`).join('')}</div>
-      <label>Logo</label><div class="seg" id="dm"><button data-m="colour" class="on">colour</button><button data-m="ink">one colour</button></div>
-      <label>Logo size</label><input type="range" id="dsz" min="30" max="110" value="${size}">
+      <div><label>Product</label><div class="seg" id="dp">${Object.entries(PROD).map(([k, p]) => `<button data-k="${k}" class="${k === prod ? 'on' : ''}">${p.name}</button>`).join('')}</div></div>
+      <div><label>Colour <span class="muted" id="dcn"></span></label><div class="swatches" id="ds">${COLORS.map(c => `<button data-c="${c[0]}" title="${c[1]}" style="background:${c[0]}" class="${c[0] === color ? 'on' : ''}"></button>`).join('')}</div></div>
+      <div><label>Artwork</label><div class="seg" id="dm"><button data-m="colour" class="on">Full colour</button><button data-m="ink">One colour</button></div></div>
+      <div><label>Method</label><div class="seg" id="dme"><button class="on">Screen print</button><button>Embroidery</button><button>Laser</button></div></div>
+      <div class="range-wrap"><label>Logo size <span class="muted" id="dsv"></span></label><input type="range" id="dsz" min="20" max="100" value="${size}"></div>
       <div class="d-summary" id="dsum"></div></div></div>
-      <div class="demo-note">Drag the logo. The real tool takes the client's uploaded artwork and writes the placement spec to the order.</div>`;
+      <div class="demo-note">Drag the logo inside the print area. The real tool takes the client's uploaded artwork and writes this spec to the order.</div>`;
     const canvas = $('#dc', body);
-    function logoSvg() {
-      const ink = mark === 'ink' ? (color === '#F4F1EA' ? '#17181C' : '#F4F1EA') : null;
-      const a = ink || '#D97B2B', g = ink || '#F4F1EA', s = ink || (color === '#17181C' ? '#F4F1EA' : '#17181C');
-      return `<svg viewBox="0 0 100 100" width="${size}" height="${size}"><rect x="16" y="46" width="68" height="42" rx="6" fill="${a}"/><rect x="44" y="46" width="12" height="42" fill="${g}"/><g transform="rotate(-12 10 48)"><rect x="10" y="32" width="80" height="16" rx="5" fill="${a}"/><rect x="44" y="32" width="12" height="16" fill="${g}"/><path d="M50 31 C36 12 28 22 50 31 C64 12 72 22 50 31 Z" fill="none" stroke="${s}" stroke-width="5" stroke-linejoin="round"/></g></svg>`;
+    CW = Math.max(220, Math.min(340, canvas.clientWidth - 24));
+    const scale = () => CW / 200;
+    function areaPx() { const a = PROD[prod].area, s = scale(); return { x: a.x * s, y: a.y * s, w: a.w * s, h: a.h * s }; }
+    function logoPx() { return areaPx().w * size / 100; }
+    function clamp() { const a = areaPx(), l = logoPx(); pos.x = Math.max(a.x, Math.min(a.x + a.w - l, pos.x)); pos.y = Math.max(a.y, Math.min(a.y + a.h - l, pos.y)); }
+    function centre() { const a = areaPx(), l = logoPx(); pos = { x: a.x + (a.w - l) / 2, y: a.y + (a.h - l) / 2 }; }
+    function logoSvg(px) {
+      const light = ['#F4F1EA', '#8B929C'].includes(color);
+      const ink = mark === 'ink' ? (light ? '#17181C' : '#F4F1EA') : null;
+      const a = ink || '#D97B2B', g = ink || '#F4F1EA', s = ink || (light ? '#17181C' : '#F4F1EA');
+      return `<svg viewBox="0 0 100 100" width="${px}" height="${px}"><rect x="16" y="46" width="68" height="42" rx="6" fill="${a}"/><rect x="44" y="46" width="12" height="42" fill="${g}"/><g transform="rotate(-12 10 48)"><rect x="10" y="32" width="80" height="16" rx="5" fill="${a}"/><rect x="44" y="32" width="12" height="16" fill="${g}"/><path d="M50 31 C36 12 28 22 50 31 C64 12 72 22 50 31 Z" fill="none" stroke="${s}" stroke-width="5" stroke-linejoin="round"/></g></svg>`;
+    }
+    function spec() {
+      const a = areaPx(), s = scale();
+      const cm = v => (v / s * 0.12).toFixed(1); /* 200 units ≈ 24 cm garment width, illustrative */
+      $('#dsum', body).innerHTML = `product &nbsp;&nbsp;<b>${PROD[prod].name}</b> · ${COLORS.find(c => c[0] === color)[1]}<br>method &nbsp;&nbsp;&nbsp;<b>${method}</b><br>artwork &nbsp;&nbsp;<b>${mark === 'ink' ? '1 colour' : 'full colour'}</b> · ${cm(logoPx())} cm wide<br>offset &nbsp;&nbsp;&nbsp;<b>${cm(pos.x - a.x)} cm, ${cm(pos.y - a.y)} cm</b> from print area origin`;
+      $('#dsv', body).textContent = size + '%'; $('#dcn', body).textContent = COLORS.find(c => c[0] === color)[1];
     }
     function render() {
-      canvas.innerHTML = PROD[prod](color) + `<div class="logo" id="dl" style="transform:translate(${pos.x}px,${pos.y}px)">${logoSvg()}</div>`;
-      $('#dsum', body).innerHTML = `product &nbsp;<b>${prod}</b><br>colour &nbsp;&nbsp;<b>${color}</b><br>logo &nbsp;&nbsp;&nbsp;&nbsp;<b>${mark}</b> ${size}px<br>offset &nbsp;&nbsp;<b>${pos.x | 0}, ${pos.y | 0}</b>`;
-      const l = $('#dl', body); let drag = null;
-      l.onpointerdown = e => { drag = { sx: e.clientX - pos.x, sy: e.clientY - pos.y }; l.setPointerCapture(e.pointerId); };
-      l.onpointermove = e => { if (!drag) return; pos = { x: e.clientX - drag.sx, y: e.clientY - drag.sy }; l.style.transform = `translate(${pos.x}px,${pos.y}px)`; $('#dsum', body).querySelectorAll('b')[3].textContent = `${pos.x | 0}, ${pos.y | 0}`; };
-      l.onpointerup = () => { drag = null; };
+      if (!pos) centre(); clamp();
+      const a = areaPx(), l = logoPx();
+      canvas.innerHTML = `<div class="stage" style="width:${CW}px;height:${CW}px">${SHAPES[prod](color)}<div class="parea" style="left:${a.x}px;top:${a.y}px;width:${a.w}px;height:${a.h}px"></div><div class="logo" id="dl" style="left:${pos.x}px;top:${pos.y}px;width:${l}px;height:${l}px">${logoSvg(l)}</div></div>`;
+      spec();
+      const el = $('#dl', body); let drag = null;
+      el.onpointerdown = e => { drag = { dx: e.clientX - pos.x, dy: e.clientY - pos.y }; el.setPointerCapture(e.pointerId); el.classList.add('drag'); };
+      el.onpointermove = e => { if (!drag) return; pos = { x: e.clientX - drag.dx, y: e.clientY - drag.dy }; clamp(); el.style.left = pos.x + 'px'; el.style.top = pos.y + 'px'; spec(); };
+      el.onpointerup = () => { drag = null; el.classList.remove('drag'); };
     }
-    $('#dp', body).querySelectorAll('button').forEach(b => b.onclick = () => { prod = b.dataset.k; $('#dp', body).querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); render(); });
-    $('#ds', body).querySelectorAll('button').forEach(b => b.onclick = () => { color = b.dataset.c; $('#ds', body).querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); render(); });
-    $('#dm', body).querySelectorAll('button').forEach(b => b.onclick = () => { mark = b.dataset.m; $('#dm', body).querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); render(); });
-    $('#dsz', body).oninput = e => { size = +e.target.value; render(); };
+    const seg = (sel, fn) => $(sel, body).querySelectorAll('button').forEach(b => b.onclick = () => { $(sel, body).querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); fn(b); render(); });
+    seg('#dp', b => { prod = b.dataset.k; pos = null; });
+    seg('#ds', b => { color = b.dataset.c; });
+    seg('#dm', b => { mark = b.dataset.m; });
+    seg('#dme', b => { method = b.textContent; });
+    $('#dsz', body).oninput = e => { const c = { x: pos.x + logoPx() / 2, y: pos.y + logoPx() / 2 }; size = +e.target.value; pos = { x: c.x - logoPx() / 2, y: c.y - logoPx() / 2 }; render(); };
     render();
   }
 
